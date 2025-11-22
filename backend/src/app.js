@@ -10,17 +10,14 @@ const swaggerSpecs = require('./config/swagger');
 
 const app = express();
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 
-// Connect to Services
 connectDB();
 connectRedis();
 connectMinIO();
 
-// Import Routes
 const authRoutes = require('./modules/auth/auth.routes');
 const userRoutes = require('./modules/users/user.routes');
 const patientRoutes = require('./modules/patients/patient.routes');
@@ -39,14 +36,12 @@ app.use('/api/prescriptions', prescriptionRoutes);
 app.use('/api/lab-orders', labOrderRoutes);
 app.use('/api/documents', documentRoutes);
 
-// Swagger Documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 app.get('/', (req, res) => {
   res.send('EHR API is running');
 });
 
-// Error Handling Middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ message: 'Internal Server Error', error: err.message });

@@ -1,8 +1,5 @@
 const userService = require('./user.service');
 
-// @desc    Create a new user
-// @route   POST /api/users
-// @access  Private (Admin)
 const createUser = async (req, res) => {
   try {
     const user = await userService.createUser(req.body);
@@ -16,9 +13,6 @@ const createUser = async (req, res) => {
   }
 };
 
-// @desc    Get all users
-// @route   GET /api/users
-// @access  Private (Admin)
 const getUsers = async (req, res) => {
   try {
     const users = await userService.getUsers(req.query);
@@ -28,9 +22,6 @@ const getUsers = async (req, res) => {
   }
 };
 
-// @desc    Get user by ID
-// @route   GET /api/users/:id
-// @access  Private (Admin)
 const getUserById = async (req, res) => {
   try {
     const user = await userService.getUserById(req.params.id);
@@ -44,9 +35,6 @@ const getUserById = async (req, res) => {
   }
 };
 
-// @desc    Update user
-// @route   PUT /api/users/:id
-// @access  Private (Admin)
 const updateUser = async (req, res) => {
   try {
     const updatedUser = await userService.updateUser(req.params.id, req.body);
@@ -60,9 +48,6 @@ const updateUser = async (req, res) => {
   }
 };
 
-// @desc    Delete user
-// @route   DELETE /api/users/:id
-// @access  Private (Admin)
 const deleteUser = async (req, res) => {
   try {
     await userService.deleteUser(req.params.id);

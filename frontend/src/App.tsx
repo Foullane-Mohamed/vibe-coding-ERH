@@ -24,13 +24,11 @@ import CreateUser from './pages/admin/CreateUser'
 function App() {
   return (
     <Routes>
-      {/* Public Routes */}
       <Route element={<AuthLayout />}>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Route>
 
-      {/* Protected Routes */}
       <Route element={<DashboardLayout />}>
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
         <Route path="/dashboard" element={<Dashboard />} />

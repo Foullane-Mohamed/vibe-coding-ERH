@@ -1,8 +1,5 @@
 const patientService = require('./patient.service');
 
-// @desc    Create a new patient
-// @route   POST /api/patients
-// @access  Private (Doctor, Nurse, Admin, Secretary)
 const createPatient = async (req, res) => {
   try {
     const patient = await patientService.createPatient(req.body, req.user._id);
@@ -12,9 +9,6 @@ const createPatient = async (req, res) => {
   }
 };
 
-// @desc    Get all patients (with search/filter)
-// @route   GET /api/patients
-// @access  Private
 const getPatients = async (req, res) => {
   const { search } = req.query;
 
@@ -26,9 +20,6 @@ const getPatients = async (req, res) => {
   }
 };
 
-// @desc    Get patient by ID
-// @route   GET /api/patients/:id
-// @access  Private
 const getPatientById = async (req, res) => {
   try {
     const patient = await patientService.getPatientById(req.params.id);
@@ -42,9 +33,6 @@ const getPatientById = async (req, res) => {
   }
 };
 
-// @desc    Update patient
-// @route   PUT /api/patients/:id
-// @access  Private
 const updatePatient = async (req, res) => {
   try {
     const updatedPatient = await patientService.updatePatient(req.params.id, req.body);

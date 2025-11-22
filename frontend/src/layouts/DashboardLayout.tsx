@@ -3,7 +3,6 @@ import { Outlet } from 'react-router-dom'
 const DashboardLayout = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex">
-      {/* Sidebar Placeholder */}
       <aside className="w-64 bg-white shadow-md hidden md:block">
         <div className="p-6">
           <h1 className="text-2xl font-bold text-primary">EHR System</h1>
@@ -39,7 +38,6 @@ const DashboardLayout = () => {
       </aside>
 
       <div className="flex-1 flex flex-col">
-        {/* Header Placeholder */}
         <header className="bg-white shadow-sm h-16 flex items-center px-6">
           <div className="ml-auto">User Profile</div>
         </header>
